@@ -1,6 +1,8 @@
 const quoteRepository = require('./quote.repository')
 const filterHelper = require('../../shared/helpers/filter');
 const pagingHelper = require('../../shared/helpers/paging');
+const { ObjectId } = require('mongodb');
+
 
 class Service {
     getById(id) {
@@ -18,6 +20,25 @@ class Service {
             meta: pagingHelper.resolve(paging, total),
             data
         };
+    }
+
+    async getAllQuotesByClient(clientId) {
+        clientId = ObjectId(clientId);
+        let data = {};
+        
+        let allApprovedQuotes = await quoteRepository.findApprovedByClient(clientId);
+        let allQuotes = await quoteRepository.countDocuments({client: clientId});
+
+        let aux = 0;
+
+        allApprovedQuotes.forEach(approvedQuote => {
+            aux += approvedQuote.total;
+        });
+
+        data.totalSpent = aux;
+        data.allQuotes = allQuotes;
+
+        return data;
     }
 
     create(quote) {

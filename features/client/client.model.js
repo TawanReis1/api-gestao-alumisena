@@ -15,6 +15,8 @@ const schema = new mongoose.Schema({
     city: { type: String, required: true, maxlength: 200 },
     neighborhood: { type: String, required: true, maxlength: 200 },
     cep: { type: String, required: true, maxlength: 8 },
+    totalSpent: { type: Number, maxlength: 200 },
+    orderQuantity: { type: Number, maxlength: 200 },
     createdBy: {type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }, 
     updatedBy: {type: mongoose.Schema.Types.ObjectId, ref: 'User' }    
     },

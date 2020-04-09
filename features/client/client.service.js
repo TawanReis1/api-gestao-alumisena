@@ -1,4 +1,5 @@
-const clientRepository = require('./client.repository')
+const clientRepository = require('./client.repository');
+const quoteService = require('../quote/quote.service');
 const filterHelper = require('../../shared/helpers/filter');
 const pagingHelper = require('../../shared/helpers/paging');
 
@@ -13,6 +14,13 @@ class Service {
 
         const total = await clientRepository.countDocuments(query);
         const data = await clientRepository.find(query, paging);
+
+        for (const client of data) {
+            const quoteInformationByClient = await quoteService.getAllQuotesByClient(client._id);
+
+            client.totalSpent = quoteInformationByClient.totalSpent;
+            client.orderQuantity = quoteInformationByClient.allQuotes;
+        }
 
         return {
             meta: pagingHelper.resolve(paging, total),

@@ -14,6 +14,10 @@ class Repository {
         return Quote.findOne({_id: id});
     }
 
+    findApprovedByClient(clientId) {
+        return Quote.find({client: clientId, status: "SOLD"})
+    }
+
     create(catalog) {
         return Quote.create(catalog);
     }

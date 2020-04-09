@@ -9,6 +9,7 @@ const schema = new mongoose.Schema({
     aditionalEmail: { type: String, maxlength: 200 },
     products: [CatalogSchema],
     total: { type: Number, required: true },
+    status: { type: String, default: 'WAITING', enum: ["SOLD", "WAITING", "CANCELED"] },
     createdBy: {type: mongoose.Schema.Types.ObjectId, unique: true, ref: 'User', required: true },
     updatedBy: {type: mongoose.Schema.Types.ObjectId, unique: true, ref: 'User' },
     },
