@@ -7,7 +7,6 @@ class Controller {
             let createdUser = await UserController.create(ctx);
             return onSuccess({}, createdUser.response, createdUser.ctx);
         } catch (err) {
-            console.log('err :', JSON.stringify(err, null, 4));
             onError('Error trying to sign-up', err.toString(), ctx);
         }
     }

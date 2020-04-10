@@ -32,12 +32,12 @@ class Service {
         return clientRepository.create(client);
     }
 
-    deleteOne(id) {
-        return clientRepository.delete({ _id: id });
+    updateOne(id, properties) {
+        return clientRepository.update(id, properties)
     }
 
-    updateOne(id, properties) {
-        return clientRepository.updateOne({ _id: id }, properties)
+    deleteOne(id) {
+        return clientRepository.delete(id);
     }
 }
 

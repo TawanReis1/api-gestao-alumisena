@@ -10,14 +10,12 @@ class Controller {
 
             return onSuccess(res.meta, res.data, ctx);
         } catch (e) {
-            console.log('e :', e);
             return onError('Error trying to list clients', e.toString(), ctx);
         }
     }
 
     async getById(ctx) {
         try {
-            console.log('ctx.params.id :', ctx.params.id);
             const res = await reportService.getById(ctx.params.id);
 
             return onSuccess({}, res, ctx);

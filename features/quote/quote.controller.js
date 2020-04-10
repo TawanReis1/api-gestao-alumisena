@@ -10,14 +10,12 @@ class Controller {
 
             return onSuccess(res.meta, res.data, ctx);
         } catch (e) {
-            console.log('e :', e);
             return onError('Error trying to list quotes', e.toString(), ctx);
         }
     }
 
     async getById(ctx) {
         try {
-            console.log('ctx.params.id :', ctx.params.id);
             const res = await quoteService.getById(ctx.params.id);
 
             return onSuccess({}, res, ctx);
@@ -28,7 +26,6 @@ class Controller {
 
     async create(ctx) {
         try {
-            console.log('entrou aquii');
             if (!ctx.request.body.name) return onBadRequest('Name cannot be null or empty', ctx);
             if (!ctx.request.body.client) return onBadRequest('Client cannot be null or empty', ctx);
             if (!ctx.request.body.products && ctx.request.body.products.length > 0) return onBadRequest('Products cannot be null or empty', ctx);

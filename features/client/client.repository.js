@@ -11,7 +11,10 @@ class Repository {
     }
 
     findOne(id) {
-        return Client.findOne({_id: id});
+        return Client
+        .findOne({_id: id})
+        .populate('createdBy')
+        .populate('updatedBy');
     }
 
     create(catalog) {
@@ -22,6 +25,9 @@ class Repository {
         return Client.updateOne({ _id: id }, properties)
     }
 
+    delete(id) {
+        return Client.delete({ _id: id });
+    }
 
     countDocuments(query) {
         return Client.countDocuments(query);

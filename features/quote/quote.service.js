@@ -45,12 +45,12 @@ class Service {
         return quoteRepository.create(quote);
     }
 
-    deleteOne(id) {
-        return quoteRepository.delete({ _id: id });
+    updateOne(id, properties) {
+        return quoteRepository.update(id, properties)
     }
 
-    updateOne(id, properties) {
-        return quoteRepository.updateOne({ _id: id }, properties)
+    deleteOne(id) {
+        return quoteRepository.delete(id);
     }
 }
 

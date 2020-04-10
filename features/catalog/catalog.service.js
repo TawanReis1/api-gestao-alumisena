@@ -25,12 +25,12 @@ class Service {
         return catalogRepository.create(catalog);
     }
 
-    deleteOne(id) {
-        return catalogRepository.delete({ _id: id });
+    updateOne(id, properties) {
+        return catalogRepository.update(id, properties)
     }
 
-    updateOne(id, properties) {
-        return catalogRepository.updateOne({ _id: id }, properties)
+    deleteOne(id) {
+        return catalogRepository.delete(id);
     }
 }
 

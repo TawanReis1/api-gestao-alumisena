@@ -22,7 +22,6 @@ class Controller {
             res.password = null;
             return onSuccess({}, res, ctx);
         } catch (e) {
-            console.log('e :', e);
             throw onError('Error trying to get dealer by id', e.toString(), ctx);
         }
     }

@@ -26,6 +26,10 @@ class Repository {
         return Quote.updateOne({ _id: id }, properties)
     }
 
+    delete(id) {
+        return Quote.delete({ _id: id });
+    }
+
 
     countDocuments(query) {
         return Quote.countDocuments(query);
