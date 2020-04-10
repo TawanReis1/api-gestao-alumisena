@@ -10,6 +10,8 @@ const schema = new mongoose.Schema({
     products: [CatalogSchema],
     total: { type: Number, required: true },
     status: { type: String, default: 'WAITING', enum: ["SOLD", "WAITING", "CANCELED"] },
+    validUntil: { type: Date, required: true},
+    paymentMethod: { type: String, enum: ["INVOICE", "CREDIT_CARD", "MONEY"] },
     createdBy: {type: mongoose.Schema.Types.ObjectId, unique: true, ref: 'User', required: true },
     updatedBy: {type: mongoose.Schema.Types.ObjectId, unique: true, ref: 'User' },
     },
