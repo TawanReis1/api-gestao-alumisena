@@ -1,10 +1,10 @@
 const Router = require('koa-router');
-const controller = require('./quote.controller');
+const controller = require('./sale.controller');
 const guard = require('../../shared/middlewares/alumisena-management-middleware');
 
 const routes = new Router();
 
-routes.prefix(`/api/${process.env.BASE_API}/quote`);
+routes.prefix(`/api/${process.env.BASE_API}/sale`);
 
 routes.get('/', guard.Authorize, controller.list);
 routes.get('/:id', guard.Authorize, controller.getById);

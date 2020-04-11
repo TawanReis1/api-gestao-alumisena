@@ -5,15 +5,15 @@ const mongooseDelete = require('mongoose-delete');
 
 const schema = new mongoose.Schema({
     name: { type: String, required: true, maxlength: 200 },
-    client: {type: mongoose.Schema.Types.ObjectId, unique: true, ref: 'Client', required: true },
+    client: {type: mongoose.Schema.Types.ObjectId, ref: 'Client', required: true },
     aditionalEmail: { type: String, maxlength: 200 },
     products: [CatalogSchema],
     total: { type: Number, required: true },
     status: { type: String, default: 'WAITING', enum: ["SOLD", "WAITING", "CANCELED"] },
-    validUntil: { type: Date, required: true},
+    soldAt: { type: Date},
     paymentMethod: { type: String, enum: ["INVOICE", "CREDIT_CARD", "MONEY"] },
-    createdBy: {type: mongoose.Schema.Types.ObjectId, unique: true, ref: 'User', required: true },
-    updatedBy: {type: mongoose.Schema.Types.ObjectId, unique: true, ref: 'User' },
+    createdBy: {type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+    updatedBy: {type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     },
     {
         versionKey: false,
@@ -22,5 +22,5 @@ const schema = new mongoose.Schema({
 
 schema.plugin(mongooseDelete, { overrideMethods: true });
 
-module.exports.QuoteSchema = schema;
-module.exports.Quote = AlumisenaManagementContext.conn.model('Quote', schema);
+module.exports.SaleSchema = schema;
+module.exports.Sale = AlumisenaManagementContext.conn.model('Sale', schema);
