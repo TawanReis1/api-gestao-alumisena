@@ -1,7 +1,7 @@
 {
   "name": "api",
   "version": "1.0.0",
-  "description": "API to fliers system",
+  "description": "API to manage Alumisena",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,9 +10,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TawanReis1/api-flyers.git"
+    "url": "git+https://github.com/TawanReis1/api-gestao-alumisena"
   },
-  "author": "Tawan & Thiago",
+  "author": "Tawan",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "3.0.6",
@@ -32,7 +32,7 @@
     "nodemon": "1.19.4"
   },
   "bugs": {
-    "url": "https://github.com/TawanReis1/api-flyers/issues"
+    "url": "https://github.com/TawanReis1/api-gestao-alumisena/issues"
   },
-  "homepage": "https://github.com/TawanReis1/api-flyers#readme"
+  "homepage": "https://github.com/TawanReis1/api-gestao-alumisena#readme"
 }
