@@ -17,6 +17,12 @@ class Repository {
         .populate('updatedBy');
     }
 
+    getClientsBetweenDates(date) {
+        return Client
+        .find({createdAt: { $gte: date.initial, $lte: date.final }})
+        .sort({createdAt: 1});
+    }
+
     create(catalog) {
         return Client.create(catalog);
     }

@@ -18,6 +18,10 @@ class Repository {
         return Report.create(report);
     }
 
+    countDocuments(query) {
+        return Report.countDocuments(query);
+    }
+
 }
 
 module.exports = new Repository();

@@ -28,6 +28,10 @@ class Service {
         };
     }
 
+    getClientsBetweenDates(date) {
+        return clientRepository.getClientsBetweenDates(date);
+    }
+
     create(client) {
         return clientRepository.create(client);
     }

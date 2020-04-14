@@ -21,6 +21,10 @@ class Service {
         };
     }
 
+    getClientsBetweenDates(date) {
+        return catalogRepository.getClientsBetweenDates(date);
+    }
+
     create(catalog) {
         return catalogRepository.create(catalog);
     }

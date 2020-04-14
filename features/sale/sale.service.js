@@ -41,6 +41,11 @@ class Service {
         return data;
     }
 
+    getClientsBetweenDates(date) {
+        return saleRepository.getClientsBetweenDates(date);
+    }
+
+
     create(sale) {
         return saleRepository.create(sale);
     }

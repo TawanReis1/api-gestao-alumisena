@@ -1,6 +1,9 @@
-const reportRepository = require('./report.repository')
+const reportRepository = require('./report.repository');
 const filterHelper = require('../../shared/helpers/filter');
 const pagingHelper = require('../../shared/helpers/paging');
+const clientService = require('../client/client.service');
+const catalogService = require('../catalog/catalog.service');
+const saleService = require('../sale/sale.service');
 
 class Service {
     getById(id) {
@@ -20,17 +23,34 @@ class Service {
         };
     }
 
-    create(report) {
-        return reportRepository.create(report);
+    async create(informations) {
+        informations.dateRange.initial = `${informations.dateRange.initial}T00:00:00+00:00`;
+        informations.dateRange.initial = new Date(informations.dateRange.initial);
+
+        informations.dateRange.final = `${informations.dateRange.final}T23:59:00+00:00`;
+        informations.dateRange.final = new Date(informations.dateRange.final);
+
+        let data = {};
+        switch(informations.type) {
+            case 'CLIENT':
+                data.clients = await clientService.getClientsBetweenDates(informations.dateRange);
+
+                break;
+            case 'CATALOG':
+                data.catalogs = await catalogService.getClientsBetweenDates(informations.dateRange);
+
+                break;
+            case 'SALE':
+                data.sales = await saleService.getClientsBetweenDates(informations.dateRange);
+
+                break;            
+        }
+
+        data.type = informations.type;
+        data.createdBy = informations.createdBy;
+        
+        return reportRepository.create(data);
     }
-
-    // deleteOne(id) {
-    //     return Client.delete({ _id: id });
-    // }
-
-    // updateOne(id, properties) {
-    //     return Client.updateOne({ _id: id }, properties)
-    // }
 }
 
 module.exports = new Service();
