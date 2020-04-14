@@ -7,11 +7,14 @@ class Repository {
         .limit(paging.limit)
         .skip(paging.skip)
         .sort(paging.sort)
+        .populate('createdBy')
         .lean();
     }
 
     findOne(id) {
-        return Report.findOne({_id: id});
+        return Report.findOne({_id: id})
+        .populate('createdBy')
+        .populate('updatedBy');
     }
 
     create(report) {

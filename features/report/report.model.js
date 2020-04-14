@@ -7,6 +7,9 @@ const mongoose = require('mongoose');
 const mongooseDelete = require('mongoose-delete');
 
 const schema = new mongoose.Schema({
+    name: { type: String, required: true, maxlength: 200 },
+    dateRangeInitial: { type: Date, required: true},
+    dateRangeFinal: { type: Date, required: true},
     clients: [ClientSchema],
     catalogs: [CatalogSchema],
     sales: [SaleSchema],

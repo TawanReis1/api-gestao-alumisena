@@ -46,6 +46,9 @@ class Service {
                 break;            
         }
 
+        data.name = informations.name;
+        data.dateRangeInitial = informations.dateRange.initial;
+        data.dateRangeFinal = informations.dateRange.final;
         data.type = informations.type;
         data.createdBy = informations.createdBy;
         

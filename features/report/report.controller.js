@@ -35,6 +35,7 @@ class Controller {
             const response = await reportService.create(ctx.request.body);
             return onCreated(ctx, response);
         } catch (e) {
+            console.log('e :', e);
             throw onError('Error trying to create report', e.toString(), ctx);
         }
     }
