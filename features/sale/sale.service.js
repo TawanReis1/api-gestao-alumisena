@@ -41,8 +41,8 @@ class Service {
         return data;
     }
 
-    getClientsBetweenDates(date) {
-        return saleRepository.getClientsBetweenDates(date);
+    getSalesBetweenDates(date) {
+        return saleRepository.getSalesBetweenDates(date);
     }
 
 

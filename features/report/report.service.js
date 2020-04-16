@@ -37,11 +37,11 @@ class Service {
 
                 break;
             case 'CATALOG':
-                data.catalogs = await catalogService.getClientsBetweenDates(informations.dateRange);
+                data.catalogs = await catalogService.getCatalogsBetweenDates(informations.dateRange);
 
                 break;
             case 'SALE':
-                data.sales = await saleService.getClientsBetweenDates(informations.dateRange);
+                data.sales = await saleService.getSalesBetweenDates(informations.dateRange);
 
                 break;            
         }

@@ -23,7 +23,7 @@ class Repository {
         return Sale.find({client: clientId, status: "SOLD"})
     }
 
-    getClientsBetweenDates(date) {
+    getSalesBetweenDates(date) {
         return Sale
         .find({createdAt: { $gte: date.initial, $lte: date.final }})
         .sort({createdAt: 1});
