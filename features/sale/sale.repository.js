@@ -25,7 +25,7 @@ class Repository {
 
     getSalesBetweenDates(date) {
         return Sale
-        .find({createdAt: { $gte: date.initial, $lte: date.final }})
+        .find({createdAt: { $gte: date.initial, $lte: date.final }, status: "SOLD"})
         .sort({createdAt: 1});
     }
 
