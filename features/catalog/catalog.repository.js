@@ -28,7 +28,12 @@ class Repository {
     }
 
     update(id, properties){
-        return Catalog.updateOne({ _id: id }, properties)
+        console.log('properties :', properties);
+        return Catalog.findOneAndUpdate({ _id: id }, properties)
+    }
+
+    updateStock(id, decreaseIn) {
+        return Catalog.findOneAndUpdate({_id: id}, { $inc : { quantity: parseInt(decreaseIn) }})
     }
 
     delete(id) {

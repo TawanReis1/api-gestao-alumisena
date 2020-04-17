@@ -34,7 +34,7 @@ class Repository {
     }
 
     update(id, properties){
-        return Sale.updateOne({ _id: id }, properties)
+        return Sale.findOneAndUpdate({ _id: id }, properties)
     }
 
     delete(id) {

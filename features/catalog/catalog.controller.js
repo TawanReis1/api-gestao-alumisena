@@ -59,6 +59,19 @@ class Controller {
         }
     }
 
+    async updateStock(ctx) {
+        try {
+            if (!ctx.params.id) return onBadRequest('Id cannot be null or empty', ctx);
+            if (!ctx.request.body.decreaseIn) return onBadRequest('Decrease in cannot be null or empty', ctx);
+
+            const response = await catalogService.updateStock(ctx.params.id, ctx.request.body.decreaseIn);
+            return onUpdated(ctx, response);
+        } catch (e) {
+            console.log('e :', e);
+            throw onError('Error trying to update stock catalog', e.toString(), ctx);
+        }
+    }
+
     async delete(ctx) {
         try {
             if (!ctx.params.id) return onBadRequest('Id cannot be null or empty', ctx);

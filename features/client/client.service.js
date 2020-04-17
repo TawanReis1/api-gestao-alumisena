@@ -17,6 +17,7 @@ class Service {
 
         for (const client of data) {
             const saleInformationByClient = await saleService.getAllSalesByClient(client._id);
+            console.log('saleInformationByClient :', JSON.stringify(saleInformationByClient, null, 4));
 
             client.totalSpent = saleInformationByClient.totalSpent;
             client.orderQuantity = saleInformationByClient.allSales;

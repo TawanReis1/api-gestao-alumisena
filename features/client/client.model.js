@@ -8,7 +8,7 @@ const schema = new mongoose.Schema({
     type: { type: String, default: 'PRIVATE_INDIVIDUAL', enum: ["LEGAL_ENTITY", "PRIVATE_INDIVIDUAL"] },
     rg: { type: String },
     cpfCnpj: { type: String, required: true, maxlength: 14 },
-    email: { type: String, maxlength: 200, unique: true },
+    email: { type: String, maxlength: 200 },
     telephone: { type: String, required: true, maxlength: 11 },
     street: { type: String, required: true, maxlength: 200 },
     houseNumber: { type: Number, maxlength: 200 },

@@ -10,6 +10,7 @@ routes.get('/', guard.Authorize, controller.list);
 routes.get('/:id', guard.Authorize, controller.getById);
 routes.post('/', guard.Authorize, controller.create);
 routes.put('/:id', guard.Authorize, controller.update);
+routes.put('/:id/stock', guard.Authorize, controller.updateStock);
 routes.delete('/:id', guard.Authorize, controller.delete);
 
 module.exports = routes;

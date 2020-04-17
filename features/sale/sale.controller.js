@@ -32,6 +32,7 @@ class Controller {
             if (!ctx.request.body.total) return onBadRequest('Total cannot be null or empty', ctx);
 
             ctx.request.body.createdBy = new ObjectId(ctx.request.body.createdBy);
+            ctx.request.body.total = ctx.request.body.total.toFixed(2);
 
             const response = await saleService.create(ctx.request.body);
             return onCreated(ctx, response);
@@ -50,6 +51,7 @@ class Controller {
             if (!ctx.request.body.total) return onBadRequest('Total cannot be null or empty', ctx);
 
             ctx.request.body.updatedBy = new ObjectId(ctx.request.body.updatedBy);
+            ctx.request.body.total = ctx.request.body.total.toFixed(2);
 
             const response = await saleService.updateOne(ctx.params.id, ctx.request.body);
             return onUpdated(ctx, response);

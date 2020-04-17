@@ -47,6 +47,7 @@ class Service {
 
 
     create(sale) {
+        console.log('sale.products :', JSON.stringify(sale.products, null, 4));
         return saleRepository.create(sale);
     }
 

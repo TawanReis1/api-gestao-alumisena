@@ -7,7 +7,7 @@ const schema = new mongoose.Schema({
     name: { type: String, required: true, maxlength: 200 },
     price: { type: Number, required: true},
     quantity: { type: Number, required: true },
-    typeQuantity: { type: String, default: 'KG', enum: ["KG", "UN"] },
+    typeQuantity: { type: String, default: 'kg', enum: ["kg", "un"] },
     color: { type: String, required: true, maxlength: 80 },
     available: { type: Boolean, required: true },
     createdBy: {type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },

@@ -28,7 +28,7 @@ class Repository {
     }
 
     update(id, properties){
-        return Client.updateOne({ _id: id }, properties)
+        return Client.findOneAndUpdate({ _id: id }, properties)
     }
 
     delete(id) {

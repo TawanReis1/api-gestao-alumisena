@@ -13,8 +13,11 @@ class Repository {
 
     findOne(id) {
         return Report.findOne({_id: id})
+        .populate('sales.client')
         .populate('createdBy')
-        .populate('updatedBy');
+        .populate('updatedBy')
+        .populate('bestClient')
+        .populate('bestSellingItem');
     }
 
     create(report) {
